@@ -1,0 +1,24 @@
+{
+  "name": "quanhta",
+  "private": true,
+  "scripts": {
+    "precommit": "lint-staged",
+    "tsc": "lerna run tsc --stream",
+    "prepare": "yarn prepare:husky:commit",
+    "prepare:husky:commit": "npx husky install && npx husky add .husky/commit-msg 'yarn commitlint --edit \"$1\"'",
+    "dev:mobile": "yarn workspace @quanhta/mobile-app start",
+    "bootstrap": "lerna bootstrap",
+    "test": "lerna run test --stream"
+  },
+  "workspaces": [
+    "packages/*"
+  ],
+  "devDependencies": {
+    "@commitlint/cli": "^12.1.4",
+    "@commitlint/config-conventional": "^12.1.4",
+    "@commitlint/config-lerna-scopes": "^12.1.4",
+    "commitlint": "^12.1.4",
+    "lerna": "^4.0.0",
+    "prettier": "^2.3.2"
+  }
+}
