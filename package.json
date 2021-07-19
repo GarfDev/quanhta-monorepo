@@ -4,6 +4,7 @@
   "scripts": {
     "precommit": "lint-staged",
     "tsc": "lerna run tsc --stream",
+    "lint:prettier": "npx pretty-quick --staged",
     "prepare": "yarn prepare:husky:commit && yarn prepare:husky:prettier",
     "prepare:husky:prettier": "npx husky add .husky/pre-commit \"npx pretty-quick --staged\"",
     "prepare:husky:commit": "npx husky install && npx husky add .husky/commit-msg 'yarn commitlint --edit \"$1\"'",
