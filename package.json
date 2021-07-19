@@ -4,7 +4,8 @@
   "scripts": {
     "precommit": "lint-staged",
     "tsc": "lerna run tsc --stream",
-    "prepare": "yarn prepare:husky:commit",
+    "prepare": "yarn prepare:husky:commit && yarn prepare:husky:prettier",
+    "prepare:husky:prettier": "npx husky add .husky/pre-commit \"npx pretty-quick --staged\"",
     "prepare:husky:commit": "npx husky install && npx husky add .husky/commit-msg 'yarn commitlint --edit \"$1\"'",
     "dev:mobile": "yarn workspace @quanhta/mobile-app start",
     "bootstrap": "lerna bootstrap",
@@ -18,7 +19,6 @@
     "@commitlint/config-conventional": "^12.1.4",
     "@commitlint/config-lerna-scopes": "^12.1.4",
     "commitlint": "^12.1.4",
-    "lerna": "^4.0.0",
-    "prettier": "^2.3.2"
+    "lerna": "^4.0.0"
   }
 }
